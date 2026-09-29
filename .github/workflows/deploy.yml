@@ -1,0 +1,49 @@
+name: Deploy child theme to GoDaddy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "stotage-child/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Upload stotage-child via SFTP
+        env:
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT || '22' }}
+          REMOTE_THEMES_DIR: ${{ vars.REMOTE_THEMES_DIR }}
+        run: |
+          sftp_run() {
+            lftp --env-password -u "$SFTP_USER" -p "$SFTP_PORT" "sftp://$SFTP_HOST" \
+              -e "set sftp:auto-confirm yes; set net:max-retries 2; set cmd:fail-exit yes; $1; quit"
+          }
+
+          # Find the WordPress themes folder (it must already contain the Stotage parent theme)
+          if [ -z "$REMOTE_THEMES_DIR" ]; then
+            for dir in html/wp-content/themes wp-content/themes public_html/wp-content/themes; do
+              if sftp_run "cd $dir/stotage" >/dev/null 2>&1; then
+                REMOTE_THEMES_DIR="$dir"
+                break
+              fi
+            done
+          fi
+
+          if [ -z "$REMOTE_THEMES_DIR" ]; then
+            echo "Could not find the themes folder. Top-level server folders:"
+            sftp_run "cls -1" || true
+            exit 1
+          fi
+
+          echo "Deploying to $REMOTE_THEMES_DIR/stotage-child"
+          sftp_run "mkdir -f $REMOTE_THEMES_DIR/stotage-child; mirror --reverse --delete --verbose stotage-child/ $REMOTE_THEMES_DIR/stotage-child/"
