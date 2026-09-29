@@ -1,0 +1,9 @@
+<div class="wrap-ctf1"><div class="wrap-form"><div class="row">
+<div class="input-filled col-md-6 col-xs-12"><label>Full name *</label>[text* your-name placeholder "Your name"]</div>
+<div class="input-filled col-md-6 col-xs-12"><label>Email address *</label>[email* your-email placeholder "you@example.com"]</div>
+<div class="input-filled col-md-6 col-xs-12"><label>Phone</label>[tel your-phone placeholder "Optional"]</div>
+<div class="input-filled col-md-6 col-xs-12"><label>Interested in *</label>[select* your-service "Wedding Photography" "Portrait Photography" "Graphic Design" "Something else"]</div>
+<div class="input-filled col-md-6 col-xs-12"><label>Event / session date</label>[date your-date]</div>
+<div class="input-filled col-12"><label>Message *</label>[textarea* your-message placeholder "Tell us about your project"]</div>
+<div class="col-12">[submit class:btn "Send Message"]</div>
+</div></div></div>

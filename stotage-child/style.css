@@ -2,10 +2,210 @@
 Theme Name:   Stotage Child
 Template:     stotage
 Description:  Child theme for Esen Photography. Custom CSS and code live here so Stotage theme updates never overwrite them.
-Version:      1.0.1
+Version:      1.1.0
 Text Domain:  stotage-child
 */
 
 /* ==========================================================================
    Custom CSS — add your style tweaks below
    ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Burger-only header on desktop.
+   Stotage shows its mobile header (logo + burger) only below 1200px; these
+   rules reuse that mobile header on large screens too and hide the desktop
+   Elementor header (menu / email / icon).
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1201px) {
+	#pxl-header-elementor .pxl-header-elementor-main,
+	#pxl-header-elementor .pxl-header-elementor-sticky {
+		display: none;
+	}
+
+	#pxl-header-elementor #pxl-header-mobile {
+		display: block;
+		position: relative;
+		z-index: 999;
+		background-color: #111112;
+	}
+
+	#pxl-header-elementor #pxl-header-mobile .pxl-header-sticky {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	#pxl-header-elementor #pxl-header-mobile.pxl-header-mobile-fixed .pxl-header-sticky {
+		visibility: visible;
+		opacity: 1;
+		animation: 0.95s ease 0s 1 normal forwards running PXL_Header_SlideDown;
+	}
+
+	#pxl-header-elementor .pxl-header-main {
+		position: relative;
+	}
+
+	#pxl-header-elementor .pxl-header-mobile-default {
+		position: relative;
+		width: 100%;
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+
+	#pxl-header-elementor .pxl-header-branding {
+		display: flex;
+		align-items: center;
+		min-height: 60px;
+		margin: 15px;
+	}
+
+	#pxl-header-elementor .pxl-header-branding img {
+		height: 29px;
+	}
+
+	#pxl-header-elementor #pxl-nav-mobile {
+		position: absolute;
+		top: 50%;
+		right: 15px;
+		transform: translate(0, -50%);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	/* Slide-in menu panel */
+	#pxl-header-mobile .pxl-header-menu {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		width: 300px;
+		height: 100vh;
+		margin: 0;
+		overflow: hidden scroll;
+		scrollbar-width: none;
+		background-color: #000;
+		box-shadow: rgba(0, 0, 0, 0.08) 0 0 15px;
+		transform: translateX(-100%);
+		visibility: hidden;
+		transition: 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	#pxl-header-mobile .pxl-header-menu.active {
+		visibility: visible;
+		opacity: 1;
+		transform: translateX(0%);
+	}
+
+	#pxl-header-mobile .pxl-header-menu-backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		opacity: 0;
+		visibility: hidden;
+		cursor: pointer;
+		transition: 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	#pxl-header-mobile .pxl-header-menu.active + .pxl-header-menu-backdrop {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	#pxl-header-mobile .pxl-header-menu-scroll {
+		padding: 40px 35px;
+	}
+
+	#pxl-header-mobile .pxl-menu-close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-radius: 0;
+		background-color: rgba(255, 255, 255, 0.03);
+	}
+
+	/* Menu items: one per line */
+	#pxl-header-mobile .pxl-menu-primary {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary > li {
+		display: block;
+		width: 100%;
+		margin: 0;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary li.menu-item {
+		position: relative;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary li.menu-item > a {
+		display: block;
+		padding: 14px 0;
+		color: #fff;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary li.menu-item > a:hover,
+	#pxl-header-mobile .pxl-menu-primary li.current-menu-item > a,
+	#pxl-header-mobile .pxl-menu-primary li.current-menu-ancestor > a {
+		color: var(--primary-color);
+	}
+
+	/* Portfolio sub-menu (opens with the small toggle button) */
+	#pxl-header-mobile .pxl-menu-primary .sub-menu {
+		position: relative;
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary .sub-menu li {
+		display: block;
+	}
+
+	#pxl-header-mobile .pxl-menu-primary .sub-menu li a {
+		padding-left: 14px;
+		font-size: 16px;
+	}
+
+	#pxl-header-mobile .pxl-menu-toggle {
+		display: block;
+		position: absolute;
+		top: 12px;
+		right: 0;
+		width: 28px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		font-size: 10px;
+		color: #fff;
+		border-radius: 3px;
+		background-color: var(--primary-color);
+		cursor: pointer;
+		transition: 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	#pxl-header-mobile .pxl-menu-toggle::before {
+		content: "+";
+		font-family: inherit;
+		font-size: 18px;
+	}
+
+	#pxl-header-mobile .pxl-menu-toggle.active::before {
+		content: "\2212";
+	}
+}
