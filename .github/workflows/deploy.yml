@@ -24,10 +24,26 @@ jobs:
           SFTP_PORT: ${{ secrets.SFTP_PORT || '22' }}
           REMOTE_THEMES_DIR: ${{ vars.REMOTE_THEMES_DIR }}
         run: |
+          # Strip stray spaces / line breaks that sneak in when pasting secrets
+          trim() { printf '%s' "$1" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'; }
+          SFTP_USER="$(trim "$SFTP_USER")"
+          SFTP_HOST="$(trim "$SFTP_HOST")"
+          SFTP_PORT="$(trim "$SFTP_PORT")"
+
+          case "$SFTP_USER" in
+            *@*|*" "*) echo "::error::SFTP_USERNAME contains '@' or a space. It must be the SFTP username from GoDaddy, not your email or GoDaddy login."; exit 1 ;;
+          esac
+
           sftp_run() {
             lftp --env-password -u "$SFTP_USER" -p "$SFTP_PORT" "sftp://$SFTP_HOST" \
               -e "set sftp:auto-confirm yes; set net:max-retries 2; set cmd:fail-exit yes; $1; quit"
           }
+
+          echo "Testing SFTP login to $SFTP_HOST:$SFTP_PORT ..."
+          if ! sftp_run "cls -1"; then
+            echo "::error::SFTP login failed. Check SFTP_HOST, SFTP_USERNAME and SFTP_PASSWORD secrets."
+            exit 1
+          fi
 
           # Find the WordPress themes folder (it must already contain the Stotage parent theme)
           if [ -z "$REMOTE_THEMES_DIR" ]; then
