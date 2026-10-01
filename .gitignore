@@ -5,6 +5,9 @@ desktop.ini
 .vscode/
 .idea/
 
+# Original photos (~100 MB) live in the WordPress media library, not in git
+photos/
+
 # Never commit secrets or local config
 .env
 *.log

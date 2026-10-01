@@ -1,10 +1,12 @@
-name: Deploy child theme to GoDaddy
+name: Deploy themes to GoDaddy
 
 on:
   push:
     branches: [main]
     paths:
+      - "esen/**"
       - "stotage-child/**"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 jobs:
@@ -13,10 +15,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Stop before uploading anything if a PHP file has a syntax error.
+      - name: Check PHP syntax
+        run: |
+          status=0
+          while IFS= read -r -d '' f; do
+            php -l "$f" >/dev/null || { php -l "$f"; status=1; }
+          done < <(find esen stotage-child -name '*.php' -print0)
+          exit $status
+
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Upload stotage-child via SFTP
+      - name: Upload themes via SFTP
         env:
           LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
@@ -45,7 +56,7 @@ jobs:
             exit 1
           fi
 
-          # Find the WordPress themes folder (it must already contain the Stotage parent theme)
+          # Find the WordPress themes folder (it must already contain the Stotage theme)
           if [ -z "$REMOTE_THEMES_DIR" ]; then
             for dir in html/wp-content/themes wp-content/themes public_html/wp-content/themes; do
               if sftp_run "cd $dir/stotage" >/dev/null 2>&1; then
@@ -61,5 +72,7 @@ jobs:
             exit 1
           fi
 
-          echo "Deploying to $REMOTE_THEMES_DIR/stotage-child"
-          sftp_run "mkdir -f $REMOTE_THEMES_DIR/stotage-child; mirror --reverse --delete --verbose stotage-child/ $REMOTE_THEMES_DIR/stotage-child/"
+          for theme in esen stotage-child; do
+            echo "Deploying $theme to $REMOTE_THEMES_DIR/$theme"
+            sftp_run "mkdir -f $REMOTE_THEMES_DIR/$theme; mirror --reverse --delete --verbose $theme/ $REMOTE_THEMES_DIR/$theme/"
+          done
