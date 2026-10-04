@@ -25,23 +25,23 @@ function esen_seo_map() {
 		),
 		'gallery/wedding' => array(
 			'title'       => 'Wedding Photographer in Den Bosch · Esen Photography',
-			'description' => 'Wedding photographer in Den Bosch. Esen & Mouchammed capture your day naturally, from quiet details to the celebration. View our wedding photos and check availability.',
-			'h1'          => 'Wedding photographer <em>in Den Bosch</em>',
+			'description' => 'Wedding photographer in Den Bosch. Esen & Mouchammed capture your day naturally, from quiet details to the celebration. View our photos and check availability.',
+			'h1'          => 'Wedding photographer <em>in&nbsp;Den&nbsp;Bosch</em>',
 		),
 		'gallery/family'  => array(
 			'title'       => 'Family Photographer in Den Bosch · Esen Photography',
 			'description' => 'Family photographer in Den Bosch. Relaxed, playful sessions without stiff poses, for the people who matter most. View our family photos and book your session.',
-			'h1'          => 'Family photographer <em>in Den Bosch</em>',
+			'h1'          => 'Family photographer <em>in&nbsp;Den&nbsp;Bosch</em>',
 		),
 		'gallery/newborn' => array(
 			'title'       => 'Newborn Photographer in Den Bosch · Esen Photography',
 			'description' => 'Newborn photographer in Den Bosch. Calm, gentle sessions at your baby\'s pace to treasure the very first days. View our newborn photos and book your session.',
-			'h1'          => 'Newborn photographer <em>in Den Bosch</em>',
+			'h1'          => 'Newborn photographer <em>in&nbsp;Den&nbsp;Bosch</em>',
 		),
 		'gallery/fashion' => array(
 			'title'       => 'Fashion Photographer in Den Bosch · Esen Photography',
 			'description' => 'Fashion photographer in Den Bosch for brands, designers and creatives. Natural, elegant editorial and lookbook photography. View our work and get in touch.',
-			'h1'          => 'Fashion photographer <em>in Den Bosch</em>',
+			'h1'          => 'Fashion photographer <em>in&nbsp;Den&nbsp;Bosch</em>',
 		),
 		'about'           => array(
 			'title'       => 'About Esen & Mouchammed · Photographers in Den Bosch',
