@@ -112,6 +112,8 @@ em { font-style: italic; }
 @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,16,12,.62) 0%, rgba(20,16,12,.25) 45%, rgba(20,16,12,0) 70%), linear-gradient(180deg, rgba(20,16,12,.35) 0%, rgba(20,16,12,0) 30%, rgba(20,16,12,.35) 100%); }
 .hero__content { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(48px, 9vh, 110px); }
+.hero h1 { font: inherit; }
+.hero h1 .display { display: block; }
 .hero .eyebrow { color: #fff; opacity: .9; margin-bottom: 26px; }
 .hero__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
 .hero__sub { max-width: 26em; font-size: 18px; opacity: .92; margin: 22px 0 34px; }
@@ -203,7 +205,8 @@ em { font-style: italic; }
 .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.3fr; gap: 50px; }
 .footer__logo img { height: 64px; width: auto; filter: brightness(0) invert(1); opacity: .9; }
 .footer__title { font: 500 11px/1 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--sage); margin-bottom: 22px; }
-.footer ul { list-style: none; display: grid; gap: 10px; }
+.footer ul { list-style: none; display: grid; gap: 4px; }
+.footer li a { display: inline-block; padding: 4px 0; }
 .footer a:hover { color: #fff; }
 .footer__tag { font: italic 300 26px/1.3 var(--serif); color: #fff; margin-top: 26px; max-width: 14em; }
 .footer__bottom { margin-top: 80px; padding-top: 28px; border-top: 1px solid #3a3531; display: flex; justify-content: space-between; font-size: 13px; color: #8d857c; flex-wrap: wrap; gap: 10px; }
@@ -334,6 +337,8 @@ em { font-style: italic; }
 	.strip figure, .masonry__item { margin-bottom: 8px; }
 	.footer__grid { grid-template-columns: 1fr; }
 	.hero__scroll { display: none; }
+	.hero__img img { object-position: 34% 60%; }
+	.link { padding-top: 8px; }
 	.menu__list .sub-menu { padding-left: 0; }
 	.form__row { grid-template-columns: 1fr; }
 	.contact__details { grid-template-columns: 1fr; }

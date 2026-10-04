@@ -17,11 +17,13 @@ $esen_specialties = array(
 <section class="hero">
 	<div class="hero__img"><?php echo esen_img( esen_photo_id( 'hero' ), '100vw', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'alt' => 'Couple walking hand in hand at golden hour' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 	<div class="hero__content wrap">
-		<p class="eyebrow">Wedding · Family · Newborn · Fashion</p>
 		<div class="hero__row">
 			<div>
-				<h1 class="display">Cherish every<br><em>moment,</em> forever.</h1>
-				<p class="hero__sub">Natural, heartfelt photography for life's most precious chapters. Based in Den Bosch, available across the Netherlands.</p>
+				<h1>
+					<span class="eyebrow">Wedding, family &amp; newborn photographer in Den Bosch</span>
+					<span class="display">Cherish every<br><em>moment,</em> forever.</span>
+				</h1>
+				<p class="hero__sub">Natural, heartfelt photography for life's most precious chapters. Based in Den Bosch ('s-Hertogenbosch), available across the Netherlands.</p>
 				<a class="btn btn--light" href="<?php echo esc_url( esen_url( 'contact' ) ); ?>">Check availability</a>
 			</div>
 			<span class="hero__scroll" aria-hidden="true">Scroll</span>

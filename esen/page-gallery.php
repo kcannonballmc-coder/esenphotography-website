@@ -15,7 +15,7 @@ $esen_categories = get_pages( array(
 
 get_template_part( 'parts/page-hero', null, array(
 	'eyebrow' => 'Portfolio',
-	'title'   => 'Stories we\'ve <em>had the honour</em> to tell',
+	'title'   => esen_seo( 'h1' ),
 	'text'    => 'Weddings, families, newborns and fashion: a selection of our favourite work.',
 ) );
 ?>

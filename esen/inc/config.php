@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 return array(
 	'email'     => 'esen.photonl@gmail.com',
 	'instagram' => 'esenphotography.nl',
-	'location'  => 'Den Bosch, the Netherlands',
+	'location'  => 'Den Bosch (\'s-Hertogenbosch), the Netherlands',
 
 	// Filled in by tools/upload-photos.ps1 (see tools/photo-ids.json).
 	'photos'    => array(

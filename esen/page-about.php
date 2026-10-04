@@ -10,7 +10,7 @@ the_post();
 get_template_part( 'parts/page-hero', null, array(
 	'eyebrow' => 'About us',
 	'title'   => 'Meet <em>Esen &amp; Mouchammed</em>',
-	'text'    => 'Wedding & family photographers based in Den Bosch.',
+	'text'    => 'Wedding, family and newborn photographers based in Den Bosch (\'s-Hertogenbosch).',
 ) );
 ?>
 

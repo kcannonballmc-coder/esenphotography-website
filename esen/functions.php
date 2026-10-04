@@ -80,44 +80,10 @@ add_filter( 'wp_resource_hints', function ( $urls, $type ) {
 	return $urls;
 }, 10, 2 );
 
-/**
- * Meta description + Open Graph tags for sharing.
- */
-add_action( 'wp_head', function () {
-	$description = is_front_page()
-		? 'Wedding, family, newborn and fashion photographer in Den Bosch. Natural, heartfelt photography by Esen & Mouchammed.'
-		: wp_strip_all_tags( get_the_excerpt() );
-	if ( ! $description ) {
-		$description = get_bloginfo( 'description' );
-	}
-	$image = has_post_thumbnail() ? get_the_post_thumbnail_url( null, 'large' ) : wp_get_attachment_image_url( esen_photo_id( 'hero' ), 'large' );
-
-	printf( '<meta name="description" content="%s">' . "\n", esc_attr( $description ) );
-	printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( wp_get_document_title() ) );
-	printf( '<meta property="og:description" content="%s">' . "\n", esc_attr( $description ) );
-	printf( '<meta property="og:type" content="website">' . "\n" );
-	printf( '<meta property="og:url" content="%s">' . "\n", esc_url( is_singular() ? get_permalink() : home_url( '/' ) ) );
-	if ( $image ) {
-		printf( '<meta property="og:image" content="%s">' . "\n", esc_url( $image ) );
-	}
-}, 5 );
-
 // Mark JS as available before first paint so reveal animations don't flash.
 add_action( 'wp_head', function () {
 	echo "<script>document.documentElement.classList.add('js')</script>\n";
 }, 1 );
-
-add_filter( 'document_title_separator', function () {
-	return '·';
-} );
-
-add_filter( 'document_title_parts', function ( $parts ) {
-	if ( is_front_page() ) {
-		$parts['title']   = 'Esen Photography';
-		$parts['tagline'] = 'Wedding, Family & Newborn Photographer in Den Bosch';
-	}
-	return $parts;
-} );
 
 /**
  * Image IDs used in a page's content (gallery and image blocks), in order.
@@ -174,3 +140,4 @@ add_filter( 'template_include', function ( $template ) {
 } );
 
 require get_template_directory() . '/inc/contact-form.php';
+require get_template_directory() . '/inc/seo.php';

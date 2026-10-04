@@ -18,7 +18,7 @@ $esen_next     = $esen_siblings ? $esen_siblings[ ( (int) $esen_index + 1 ) % co
 
 get_template_part( 'parts/page-hero', null, array(
 	'eyebrow' => 'Portfolio',
-	'title'   => esc_html( get_the_title() ),
+	'title'   => esen_seo( 'h1' ) ? esen_seo( 'h1' ) : esc_html( get_the_title() ),
 	'text'    => get_the_excerpt(),
 ) );
 ?>
