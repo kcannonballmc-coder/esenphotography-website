@@ -1,0 +1,98 @@
+{
+	"name": "Esen Photography",
+	"url": "https://esenphotography.com",
+	"email": "esen.photonl@gmail.com",
+	"instagram": "esenphotography.nl",
+	"location": "Den Bosch ('s-Hertogenbosch), the Netherlands",
+	"web3formsKey": "",
+
+	"photos": {
+		"hero": "CSJ7U",
+		"menu": "geM9b",
+		"intro_a": "ue0AK",
+		"intro_b": "5syuq",
+		"cta": "HW7Bg",
+		"about": "R8PgL",
+		"about_2": "xps1l",
+		"contact": "xejEn",
+		"portfolio_hero": "T2f9k",
+		"about_hero": "4bjY0",
+		"strip": ["90Svp", "HY582", "SjtOa", "p4llm", "9QBFV", "skz8o", "jrhTp", "A5F2I", "eCvOy"],
+		"instagram": ["aBUcJ", "kkF59", "isTE5", "4bjY0", "I5jv7", "I8Fi1"]
+	},
+
+	"galleries": [
+		{
+			"slug": "wedding",
+			"title": "Wedding",
+			"card": "KjmEJ",
+			"cover": "jrhTp",
+			"excerpt": "Your day, told naturally, from the quiet details to the celebration.",
+			"intro": "From the first look to the last dance, we capture your wedding day as it really felt: the emotions, the people and the little details you'll want to remember forever.",
+			"first": ["90Svp", "KjmEJ", "CSJ7U", "p4llm", "2xpQz", "jrhTp", "HW7Bg", "9QBFV"],
+			"seoTitle": "Wedding Photographer in Den Bosch · Esen Photography",
+			"description": "Wedding photographer in Den Bosch. Esen & Mouchammed capture your day naturally, from quiet details to the celebration. View our photos and check availability."
+		},
+		{
+			"slug": "family",
+			"title": "Family",
+			"card": "OkJUv",
+			"cover": "skz8o",
+			"excerpt": "Relaxed sessions for the people who matter most.",
+			"intro": "Family sessions are relaxed and playful. No stiff poses, just time together, with the laughter, cuddles and in-between moments that make your family yours.",
+			"first": ["OkJUv", "skz8o", "LqYw4", "R8PgL"],
+			"seoTitle": "Family Photographer in Den Bosch · Esen Photography",
+			"description": "Family photographer in Den Bosch. Relaxed, playful sessions without stiff poses, for the people who matter most. View our family photos and book your session."
+		},
+		{
+			"slug": "newborn",
+			"title": "Newborn",
+			"card": "0vrnC",
+			"cover": "I8Fi1",
+			"excerpt": "Gentle, calm portraits of the very first days.",
+			"intro": "Those first days go by so fast. Our newborn sessions are calm and gentle, at your baby's pace, so you can treasure the tiny fingers, toes and first expressions forever.",
+			"first": ["0vrnC", "nC99h", "HY582", "I8Fi1", "aBUcJ"],
+			"seoTitle": "Newborn Photographer in Den Bosch · Esen Photography",
+			"description": "Newborn photographer in Den Bosch. Calm, gentle sessions at your baby's pace to treasure the very first days. View our newborn photos and book your session."
+		},
+		{
+			"slug": "fashion",
+			"title": "Fashion",
+			"card": "9WbZT",
+			"cover": "isTE5",
+			"excerpt": "Editorial portraits for brands, designers and creatives.",
+			"intro": "Editorial and lookbook photography for brands, designers and creatives, with a natural, elegant style that lets the clothes and the person shine.",
+			"first": ["9WbZT", "geM9b", "SjtOa", "A5F2I", "isTE5"],
+			"seoTitle": "Fashion Photographer in Den Bosch · Esen Photography",
+			"description": "Fashion photographer in Den Bosch for brands, designers and creatives. Natural, elegant editorial and lookbook photography. View our work and get in touch."
+		}
+	],
+
+	"pages": {
+		"home": {
+			"title": "Wedding & Family Photographer Den Bosch · Esen Photography",
+			"description": "Esen Photography is a husband-and-wife team in Den Bosch ('s-Hertogenbosch) for natural, heartfelt wedding, family, newborn and fashion photography."
+		},
+		"portfolio": {
+			"title": "Portfolio: Wedding, Family & Newborn Photos · Esen Photography",
+			"description": "Browse the Esen Photography portfolio: wedding, family, newborn and fashion photography by Esen & Mouchammed, based in Den Bosch, the Netherlands."
+		},
+		"about": {
+			"title": "About Esen & Mouchammed · Photographers in Den Bosch",
+			"description": "Meet Esen & Mouchammed, the husband-and-wife photographers behind Esen Photography in Den Bosch. Our story, our approach and what makes a photo you can feel.",
+			"story": [
+				"We're Esen & Mouchammed, the husband-and-wife team behind Esen Photography. Our story started over ten years ago in our university's photography club, where we met and bonded over our love for taking pictures. What began as a shared hobby turned into a life together, both as partners and as photographers.",
+				"We decided to make photography our job. From our early, shaky photos to the clear, meaningful ones we take now, we've grown together, learning and having fun along the way. We've built a business that's about more than pictures: it's about connecting with people and saving special moments.",
+				"As a team, we bring creativity and care to every shoot. Whether we're making a newborn smile, capturing a bride's big day or finding the best light for a fashion shot, we put our all into every photo. We've learned that the best pictures are the ones you can feel.",
+				"We'd love to share our passion with you and help tell your story through our cameras."
+			]
+		},
+		"contact": {
+			"title": "Contact & Bookings · Esen Photography, Den Bosch",
+			"description": "Contact Esen Photography in Den Bosch to book a wedding, family, newborn, maternity or fashion session. Send us your date and plans and we'll reply soon.",
+			"intro": "Have a date in mind, or a question about a session? Send us a message using the form below and we'll get back to you as soon as possible."
+		}
+	},
+
+	"sessionTypes": ["Wedding", "Family", "Newborn", "Maternity", "Fashion", "Something else"]
+}

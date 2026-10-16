@@ -1,27 +1,36 @@
 # Esen Photography website
 
-Code for the WordPress site hosted on GoDaddy (Managed WordPress), using the **Stotage** theme.
+The website of Esen Photography (wedding, family, newborn and fashion photography in Den Bosch), published for free with **GitHub Pages** at https://esenphotography.com.
 
-## What lives here
+## How it works
 
-- `stotage-child/`: the child theme. Custom CSS goes in `style.css`, custom PHP in `functions.php`.
-- `.github/workflows/deploy.yml`: uploads `stotage-child/` to GoDaddy over SFTP on every push to `main`.
+- `site/data/site.json`: all page text, SEO titles and descriptions, contact details, and which photo goes where.
+- `site/data/photos.json` and `site/data/alt.json`: the photo list (with categories and sizes) and each photo's description.
+- `site/photos/`: web-sized photos (`lg` 1600 px, `sm` 800 px).
+- `site/assets/`: styles (`css/main.css`), scripts (`js/main.js`), logo and favicon.
+- `site/build.mjs`: turns the above into the finished website in `_site/`.
 
-Page content, layouts (Elementor), photos and settings live in the WordPress database. Edit those in WP Admin, not here.
+Every push to `main` that changes `site/` runs `.github/workflows/pages.yml`, which builds the site and publishes it. Progress shows in the repo's **Actions** tab.
 
-## Workflow
+## Preview on your computer
 
-1. Edit files in `stotage-child/`.
-2. Commit and push to `main`.
-3. GitHub Actions deploys automatically. Check progress in the repo's **Actions** tab.
+```
+node site/build.mjs
+node site/serve.mjs
+```
 
-## Required GitHub secrets (Settings → Secrets and variables → Actions)
+Then open http://localhost:4173.
 
-| Secret          | Value                              |
-|-----------------|------------------------------------|
-| `SFTP_HOST`     | GoDaddy SFTP host                  |
-| `SFTP_USERNAME` | GoDaddy SFTP username              |
-| `SFTP_PASSWORD` | GoDaddy SFTP password              |
-| `SFTP_PORT`     | Optional, defaults to `22`         |
+## Adding photos
 
-The deploy finds the themes folder on the server automatically. To force a path, set the repository **variable** `REMOTE_THEMES_DIR` (e.g. `html/wp-content/themes`).
+1. Put the original photo in `photos/<category>/` (this folder is not uploaded to GitHub).
+2. Add it to `tools/photo-ids.json` with its category, and a description in `site/data/alt.json`.
+3. Run `tools/resize-photos.ps1`, then commit `site/photos` and `site/data`.
+
+## Contact form
+
+Messages are delivered by [Web3Forms](https://web3forms.com) to esen.photonl@gmail.com. The access key is `web3formsKey` in `site/data/site.json` (it is meant to be public). Without a key the Contact page shows an email button instead.
+
+## History
+
+The site previously ran on WordPress at GoDaddy. The custom WordPress theme (`esen/`), the old child theme (`stotage-child/`) and the WordPress scripts in `tools/` are kept for reference only and are no longer used.

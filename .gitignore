@@ -12,3 +12,6 @@ photos/
 .env
 *.log
 wp-config.php
+
+# Built website (made by site/build.mjs, published by GitHub Actions)
+_site/
