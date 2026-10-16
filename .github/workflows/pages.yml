@@ -6,6 +6,7 @@ on:
     paths:
       - "site/**"
       - ".github/workflows/pages.yml"
+  # Manual run: repo > Actions tab > "Publish website" (left list) > Run workflow
   workflow_dispatch:
 
 permissions:
